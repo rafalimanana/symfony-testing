@@ -93,3 +93,14 @@ jobs:
           cp phpunit.xml.dist phpunit.xml
           cp phpunit.xml.dist phpunit.xml.test
           php bin/phpunit --stop-on-failure
+
+      ## —— Slack notification
+      - name: Slack notification
+        if: ${{failure()}}
+        run: |
+          curl -X POST -H "Content-type: application/json" --data "{\"text\":\"Test failure \"}" ${{secrets.SLACK_WEBHOOK}}
+      
+      - name: Slack notification success
+        if: ${{success()}}
+        run: |
+          curl -X POST -H "Content-type: application/json" --data "{\"text\":\"Test success \"}" ${{secrets.SLACK_WEBHOOK}}

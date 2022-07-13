@@ -53,6 +53,10 @@ class InvitationCodeTest extends KernelTestCase
         	$this->getEntity()->setCode("1a345"),
         	1
         );
+	}
+
+	public function testOtherInvalidCodeEntity()
+	{
         $this->assertHasErrors(
         	$this->getEntity()->setCode("1345"),
         	1
