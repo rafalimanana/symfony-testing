@@ -66,8 +66,8 @@ jobs:
 
       - name: Check the Symfony console
         run: |
-          bin/console about
-          bin/console strangebuzz:version
+          php bin/console about
+          php bin/console strangebuzz:version
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
       - name: Coding standards checks (php_codesniffer + php-cs-fixer)
