@@ -1,6 +1,5 @@
 name: Test unit
-on:[push]
-
+on: [push]
 jobs:
   symfony:
     name: Symfony 5.0 (PHP ${{ matrix.php-versions }})
