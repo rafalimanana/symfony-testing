@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+{% block stylesheets %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .form-control {
+            margin-bottom: 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Nous contacter</h1>
+        <form 
+            method="POST" 
+            path="{{path("contact")}}"
+        >
+            {% for message in app.flashes('succes') %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <div class="alert-icon">
+                        <i class="icon-check"></i>
+                    </div>
+                    <div class="alert-message">
+                        <span>{{ message }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-6">
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Votre nom"
+                        class="form-control" 
+                    />
+                    {% if errors is defined and errors.name is defined %}
+                        <div class="alert alert-danger" role="alert">
+                            <span class="form-error">{{errors.name}}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="email" 
+                            placeholder="Votre email" 
+                            class="form-control" 
+                        />
+                        {% if errors is defined and errors.email is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                <span class="form-error">{{errors.email}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="phone" 
+                            placeholder="Téléphone" 
+                            class="form-control" 
+                        />
+                        {% if errors is defined and errors.phone is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                <span class="form-error">{{errors.phone}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="subject" 
+                            placeholder="Sujet" 
+                            class="form-control" 
+                        />
+                        {% if errors is defined and errors.subject is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                <span class="form-error">{{errors.subject}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <textarea 
+                            name="message"
+                            class="form-control" 
+                        ></textarea>
+                        {% if errors is defined and errors.message is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                <span class="form-error">{{errors.message}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                envoyer
+            </button>
+        </form>
+    </div>
+{% endblock %} 
