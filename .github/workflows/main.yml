@@ -1,7 +1,7 @@
 name: Test unit
 on: [push]
 jobs:
-  symfony:
+  test-unit:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/actions/checkout (official)
