@@ -66,16 +66,17 @@ jobs:
 
       - name: Check the Symfony console
         run: |
+          php bin/console -V
           php bin/console about
 
       ## —— Static analysis ✨ —————————————————————————————————————————————————
-      - name: Static analysis of PHP code (PHPStan)
+      - name: Static analysis of PHP code
         run: |
           php bin/console about --env=prod
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
       # We use the dev env here
-      - name: Run functionnal and unit tests
+      - name: Run unit tests on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
         run: |
           cp phpunit.xml.dist phpunit.xml
           cp phpunit.xml.dist phpunit.xml.test
