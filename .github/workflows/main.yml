@@ -76,7 +76,7 @@ jobs:
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
       # We use the dev env here
-      - name: Run unit tests on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
+      - name: Run unit tests on PHP ${{ matrix.php-versions }} and Symfony ${{ matrix.symfony-versions }}
         run: |
           cp phpunit.xml.dist phpunit.xml
           cp phpunit.xml.dist phpunit.xml.test
