@@ -78,10 +78,8 @@ jobs:
           php bin/console about --env=prod
           
       ## —— BDD —————————————————————————————————————————————————  
-      - run: composer require symfony/runtime 
       - name: Run bdd
         run: |
-            composer require --dev symfony/orm-pack
             php bin/console doctrine:database:drop --if-exists --force --env=test
             php bin/console doctrine:database:create --if-not-exists --env=test
             php bin/console doctrine:schema:update --env=test --force || echo "No migrations found or schema update failed"
