@@ -76,7 +76,7 @@ jobs:
       ## —— Static analysis ✨ —————————————————————————————————————————————————
       - name: Static analysis of PHP code (PHPStan)
         run: |
-          bin/console about --env=prod
+          php bin/console about --env=prod
           make static-analysis
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
