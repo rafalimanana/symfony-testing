@@ -1,5 +1,5 @@
 # https://help.github.com/en/actions
-name: Full CI process for Symfony 5
+name: Test unit
 on:
   push:
     branches:
@@ -77,7 +77,6 @@ jobs:
       - name: Static analysis of PHP code (PHPStan)
         run: |
           php bin/console about --env=prod
-          make static-analysis
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
       # We use the dev env here
