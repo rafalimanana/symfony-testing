@@ -9,7 +9,6 @@ class AppTest extends TestCase {
 	public function testTestsAreWorking()
 	{
 		$this->assertEquals(2, 1+1);
-		$this->assertEquals(3, 2+1);
 	}
 	
 }

@@ -32,8 +32,9 @@ class UserRepositoryTest extends KernelTestCase
 		$this->databaseTool->loadFixtures([
 			UserFixtures::class
 		]);
-		$users = $this->em->getRepository(User::class)->count([]);
-		$this->assertEquals(10, $users);
+		$users = $this->em->getRepository(User::class)->findAll();
+		$count = count($users);
+		$this->assertEquals(10, $count);
 	}
 
 	protected function tearDown(): void
