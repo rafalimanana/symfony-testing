@@ -78,6 +78,7 @@ jobs:
           php bin/console about --env=prod
           
       ## —— BDD —————————————————————————————————————————————————  
+      - run: composer require symfony/runtime 
       - name: Run bdd
         run: |
             composer require --dev symfony/orm-pack
