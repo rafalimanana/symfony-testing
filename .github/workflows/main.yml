@@ -80,10 +80,6 @@ jobs:
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
       # We use the dev env here
-      - name: Load Doctrine fixtures and populate the Elasticsearch indexes
-        run: |
-          make load-fixtures
-
       - name: Run functionnal and unit tests
         run: |
           cp phpunit.xml.ci phpunit.xml
