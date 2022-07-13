@@ -68,11 +68,6 @@ jobs:
         run: |
           php bin/console about
 
-      ## —— Coding standards ✨ ————————————————————————————————————————————————
-      - name: Coding standards checks (php_codesniffer + php-cs-fixer)
-        run: make cs
-        if: matrix.php-versions == '8.1'
-
       ## —— Static analysis ✨ —————————————————————————————————————————————————
       - name: Static analysis of PHP code (PHPStan)
         run: |
