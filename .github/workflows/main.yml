@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php-versions: ['8.0', '8.1']
+        php-versions: ['8.1']
     steps:
 
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
@@ -46,7 +46,7 @@ jobs:
 
       # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
       - name: Validate composer.json and composer.lock
-        run: composer validate
+        run: composer validate --no-check-publish --strict
 
       - name: Get composer cache directory
         id: composer-cache
