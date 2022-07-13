@@ -90,4 +90,4 @@ jobs:
       # We use the dev env here
       - name: Run unit tests on PHP ${{ matrix.php-versions }} and Symfony ${{ matrix.symfony-versions }}
         run: |
-          env PANTHER_NO_HEADLESS=1 PANTHER_CHROME_BINAY=/bin/chromium bin/phpunit --filter PantherControllerTest --debug
+          env PANTHER_NO_HEADLESS=1 PANTHER_CHROME_BINAY=/bin/chromium php bin/phpunit --filter PantherControllerTest --debug
