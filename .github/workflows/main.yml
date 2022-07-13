@@ -27,7 +27,6 @@ jobs:
       fail-fast: true
       matrix:
         php-versions: ['8.1']
-        symfony-versions: ['5.2']
     steps:
 
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
@@ -96,8 +95,11 @@ jobs:
 
       ## —— Slack notification
       - name: Slack notification
+        if: ${{failure()}}
         run: |
-          if: ${{failure()}}
-            curl -X POST -H "Content-type: application/json" --data "{\"text\":\"Test failure \"}" ${{secrets.SLACK_WEBHOOK}}
-          else
-            curl -X POST -H "Content-type: application/json" --data "{\"text\":\"Test success \"}" ${{secrets.SLACK_WEBHOOK}}
+          curl -X POST -H "Content-type: application/json" --data "{\"text\":\"Test failure \"}" ${{secrets.SLACK_WEBHOOK}}
+      
+      - name: Slack notification success
+        if: ${{success()}}
+        run: |
+          curl -X POST -H "Content-type: application/json" --data "{\"text\":\"Test success \"}" ${{secrets.SLACK_WEBHOOK}}
