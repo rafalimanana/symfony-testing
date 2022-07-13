@@ -9,7 +9,7 @@ env:
   ES_HTTP_PORT: 9209
 jobs:
   symfony:
-    name: Symfony 5.2 (PHP ${{ matrix.php-versions }})
+    name: Test UnitSymfony 5.2 (PHP ${{ matrix.php-versions }})
     # https://hub.docker.com/_/ubuntu/
     runs-on: ubuntu-20.04
     services:
@@ -90,6 +90,4 @@ jobs:
       # We use the dev env here
       - name: Run unit tests on PHP ${{ matrix.php-versions }} and Symfony ${{ matrix.symfony-versions }}
         run: |
-          cp phpunit.xml.dist phpunit.xml
-          cp phpunit.xml.dist phpunit.xml.test
-          php bin/phpunit --stop-on-failure
+          env PANTHER_NO_HEADLESS=1 PANTHER_CHROME_BINAY=/bin/chromium bin/phpunit --filter PantherControllerTest --debug
