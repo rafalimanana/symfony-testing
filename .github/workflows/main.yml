@@ -2,8 +2,6 @@ name: Test unit
 on: [push]
 jobs:
   symfony:
-    name: Symfony 5.0 (PHP ${{ matrix.php-versions }})
-    # https://hub.docker.com/_/ubuntu/
     runs-on: ubuntu-latest
     steps:
       # https://github.com/actions/checkout (official)
